@@ -17,7 +17,7 @@ builds:
     ldflags:
       - -s -w
       - -X github.com/yoyrandao/osctx/cmd.Version={{.Version}}
-      - -X github.com/yoyrandao/osctx/cmd.Commit={{.Commit}}
+      - -X github.com/yoyrandao/osctx/cmd.Commit={{.ShortCommit}}
 
 archives:
   - id: archive

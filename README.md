@@ -82,9 +82,30 @@ Select cloud [1-3]:
 | Method | Command |
 |---|---|
 | Go install | `go install github.com/yoyrandao/osctx@latest` |
-| Download archive | [Releases page](https://github.com/yoyrandao/osctx/releases) |
+| Download archive | See snippets below |
 
-Unarchive the binary and place it somewhere on your `$PATH`, then add the shell wrapper above.
+**Linux (amd64)**
+```bash
+curl -sL https://github.com/yoyrandao/osctx/releases/latest/download/osctx_linux_amd64.tar.gz \
+  | tar xz -C /usr/local/bin osctx
+```
+
+**macOS (auto-detects Intel / Apple Silicon)**
+```bash
+ARCH=$(uname -m | sed 's/x86_64/amd64/')
+curl -sL "https://github.com/yoyrandao/osctx/releases/latest/download/osctx_darwin_${ARCH}.tar.gz" \
+  | tar xz -C /usr/local/bin osctx
+```
+
+**Windows (PowerShell)**
+```powershell
+$dest = "$env:LOCALAPPDATA\Programs\osctx"
+New-Item -ItemType Directory -Force $dest | Out-Null
+Invoke-WebRequest https://github.com/yoyrandao/osctx/releases/latest/download/osctx_windows_amd64.zip -OutFile osctx.zip
+Expand-Archive osctx.zip -DestinationPath $dest -Force
+Remove-Item osctx.zip
+# Add $dest to your PATH, then add the PowerShell wrapper to your $PROFILE
+```
 
 > [!NOTE]
 > For the best experience, install [`fzf`](https://github.com/junegunn/fzf).
