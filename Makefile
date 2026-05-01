@@ -5,3 +5,6 @@ build:
 
 install: build
 	sudo cp dist/osctx /usr/local/bin/
+
+test: build
+	go test ./...

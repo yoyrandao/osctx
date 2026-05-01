@@ -40,14 +40,25 @@ osctx unset
 ### Shell wrapper (required)
 
 Because a subprocess cannot modify its parent shell's environment, `osctx`
-prints the export statement to stdout and you must source it. Add this to
-your `.bashrc` / `.zshrc`:
+prints the export statement to stdout and you must source it.
 
+**Bash / Zsh** — add to `.bashrc` / `.zshrc`:
 ```bash
 osctx() { eval "$(command osctx "$@")"; }
 ```
 
-After that, selecting a cloud will automatically set `OS_CLOUD` in your shell.
+**PowerShell** — add to your `$PROFILE`:
+```powershell
+function osctx { Invoke-Expression (osctx.exe @args) }
+```
+
+`osctx` auto-detects your shell and emits the correct syntax (`export` for POSIX,
+`$env:OS_CLOUD = "..."` for PowerShell).
+
+> [!NOTE]
+> CMD is not supported — there is no equivalent of `eval` in CMD. Use PowerShell or Git Bash instead.
+
+After adding the wrapper, selecting a cloud will automatically set `OS_CLOUD` in your shell.
 
 ### Interactive mode
 
