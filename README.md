@@ -1,8 +1,8 @@
 # `osctx`: Interactive switch tool for OpenStack clouds
 
-![Latest GitHub release](https://img.shields.io/github/v/release/yoyrandao/osctx?style=flat-square)
-![GitHub stars](https://img.shields.io/github/stars/yoyrandao/osctx?style=flat-square)
-![CI](https://img.shields.io/github/actions/workflow/status/yoyrandao/osctx/ci.yml?style=flat-square)
+![Latest GitHub release](https://img.shields.io/github/v/release/yoyrandao/osctx)
+![GitHub stars](https://img.shields.io/github/stars/yoyrandao/osctx?label=github%20stars)
+![CI](https://img.shields.io/github/actions/workflow/status/yoyrandao/osctx/ci.yml)
 
 Interactively switch between OpenStack clouds defined in your `clouds.yaml`.
 [Install &rarr;](#installation)
