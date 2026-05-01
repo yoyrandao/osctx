@@ -71,9 +71,9 @@ Select cloud [1-3]:
 | Method | Command |
 |---|---|
 | Go install | `go install github.com/yoyrandao/osctx@latest` |
-| Download binary | [Releases page](https://github.com/yoyrandao/osctx/releases) |
+| Download archive | [Releases page](https://github.com/yoyrandao/osctx/releases) |
 
-Move the binary somewhere on your `$PATH`, then add the shell wrapper above.
+Unarchive the binary and place it somewhere on your `$PATH`, then add the shell wrapper above.
 
 > [!NOTE]
 > For the best experience, install [`fzf`](https://github.com/junegunn/fzf).
