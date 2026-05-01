@@ -90,3 +90,7 @@ Move the binary somewhere on your `$PATH`, then add the shell wrapper above.
 3. `~/.config/openstack/clouds.yaml`
 4. `~/.openstack/clouds.yaml`
 5. `/etc/openstack/clouds.yaml`
+
+#### Stargazers over time
+
+[![Stargazers over time](https://starchart.cc/yoyrandao/osctx.svg)](https://starchart.cc/yoyrandao/osctx)
