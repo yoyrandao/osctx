@@ -7,6 +7,7 @@ import (
 	"github.com/spf13/cobra"
 	"github.com/yoyrandao/osctx/internal/clouds"
 	"github.com/yoyrandao/osctx/internal/selector"
+	"github.com/yoyrandao/osctx/internal/shell"
 )
 
 var rootCmd = &cobra.Command{
@@ -14,8 +15,12 @@ var rootCmd = &cobra.Command{
 	Short: "Interactive switcher for OpenStack clouds (clouds.yaml)",
 	Long: `osctx selects an OpenStack cloud from clouds.yaml and emits the
 shell command to set OS_CLOUD on stdout. Pair with this shell wrapper:
- 
-  osctx() { eval "$(command osctx "$@")"; }`,
+
+For bash/zsh:
+  osctx() { eval "$(command osctx "$@")"; }
+
+For Powershell:
+  function osctx { Invoke-Expression (osctx.exe @args) }`,
 	Args:          cobra.NoArgs,
 	RunE:          runRoot,
 	SilenceUsage:  true,
@@ -47,7 +52,7 @@ func runRoot(cmd *cobra.Command, args []string) error {
 		return err
 	}
 
-	fmt.Printf("export OS_CLOUD=%s\n", cloud)
+	fmt.Println(shell.ExportStmt(cloud))
 	fmt.Fprintf(os.Stderr, "Switched to cloud: %s\n", cloud)
 	return nil
 }

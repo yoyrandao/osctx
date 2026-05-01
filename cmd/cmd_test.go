@@ -61,6 +61,7 @@ func TestCurrentCmd_NoneWhenUnset(t *testing.T) {
 
 func TestUnsetCmd_WhenCloudSet(t *testing.T) {
 	t.Setenv("OS_CLOUD", "dev")
+	t.Setenv("SHELL", "/bin/sh")
 
 	// Capture real os.Stdout because unset writes directly there (shell sources it).
 	r, w, err := os.Pipe()

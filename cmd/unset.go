@@ -5,11 +5,12 @@ import (
 	"os"
 
 	"github.com/spf13/cobra"
+	"github.com/yoyrandao/osctx/internal/shell"
 )
 
 var unsetCmd = &cobra.Command{
 	Use:           "unset",
-	Short:         "Clear the current cloud",
+	Short:         "Clear the current cloud value",
 	Args:          cobra.NoArgs,
 	SilenceUsage:  true,
 	SilenceErrors: true,
@@ -18,7 +19,7 @@ var unsetCmd = &cobra.Command{
 			fmt.Fprintln(os.Stderr, "no cloud set")
 			return nil
 		}
-		fmt.Println("unset OS_CLOUD")
+		fmt.Println(shell.UnsetStmt())
 		fmt.Fprintln(os.Stderr, "OS_CLOUD cleared")
 		return nil
 	},
